@@ -1,6 +1,80 @@
-import "./App.css"
+import { useState } from "react";
+import "./App.css";
+import quickbiteImage from "./assets/quickbite.png";
+
+type Project = {
+  title: string;
+  description: string;
+  longDescription: string;
+  technologies: string[];
+  image?: string;
+  github?: string;
+  demo?: string;
+  details: string[];
+};
+
+const projects: Project[] = [
+  {
+    title: "QuickBite",
+    description:
+      "A food ordering and inventory management system designed to manage products, orders, purchases, and stock.",
+    longDescription:
+      "QuickBite is a full-stack food ordering and inventory management system designed to help manage food products, customer orders, purchases, and inventory.",
+    technologies: ["PHP", "MySQL", "JavaScript"],
+    image: quickbiteImage,
+    github: "https://github.com/rkent-26/QuickBite",
+    demo:
+      "https://quickbite-system.site.je/AUTHENTICATION/staff-login.php",
+    details: [
+      "Food ordering management",
+      "Inventory and stock tracking",
+      "Product management",
+      "Purchase management",
+      "Order management",
+      "Database-driven system",
+    ],
+  },
+
+  {
+    title: "Rivanova City Hall",
+    description:
+      "A business permit issuance system using enterprise integration concepts and backend services.",
+    longDescription:
+      "Rivanova City Hall is a business permit issuance system created to demonstrate enterprise integration concepts, backend services, and communication between system components.",
+    technologies: ["Java", "Spring Boot", "Apache Camel"],
+    github: "#",
+    details: [
+      "Business permit processing",
+      "Enterprise integration",
+      "Backend services",
+      "Apache Camel messaging",
+      "Spring Boot application",
+    ],
+  },
+
+  {
+    title: "Personal Portfolio",
+    description:
+      "A personal developer portfolio built to showcase my skills, projects, journey, and experience.",
+    longDescription:
+      "This portfolio is a personal project created to showcase my development journey, technical skills, projects, and the technologies I am currently learning.",
+    technologies: ["React", "TypeScript", "Vite"],
+    github: "https://github.com/rkent-26/Arken-Space",
+    details: [
+      "Responsive design",
+      "React components",
+      "TypeScript",
+      "Modern UI",
+      "Vite development environment",
+      "Vercel deployment",
+    ],
+  },
+];
 
 function App() {
+  const [selectedProject, setSelectedProject] =
+    useState<Project | null>(null);
+
   return (
     <div className="portfolio">
       {/* NAVBAR */}
@@ -48,11 +122,29 @@ function App() {
             </div>
 
             <div className="social-links">
-              <a href="https://github.com/rkent-26" target="_blank">GitHub</a>
+              <a
+                href="https://github.com/rkent-26"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                GitHub
+              </a>
+
               <span>/</span>
-              <a href="#" target="_blank">LinkedIn</a>
+
+              <a href="#" target="_blank" rel="noopener noreferrer">
+                LinkedIn
+              </a>
+
               <span>/</span>
-              <a href="https://www.facebook.com/ralp.kenit" target="_blank">Facebook</a>
+
+              <a
+                href="https://www.facebook.com/ralp.kenit"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Facebook
+              </a>
             </div>
           </div>
 
@@ -154,6 +246,7 @@ function App() {
 
               <div className="timeline-content">
                 <h3>Started Programming</h3>
+
                 <p>
                   Began learning programming fundamentals and
                   exploring how software applications are built.
@@ -170,6 +263,7 @@ function App() {
 
               <div className="timeline-content">
                 <h3>Building Real Projects</h3>
+
                 <p>
                   Started creating school and personal projects
                   using different programming languages and tools.
@@ -186,6 +280,7 @@ function App() {
 
               <div className="timeline-content">
                 <h3>Growing as a Developer</h3>
+
                 <p>
                   Learning modern technologies like React,
                   TypeScript, Node.js, databases, and AI tools.
@@ -284,96 +379,91 @@ function App() {
           </div>
 
           <div className="projects-grid">
-            <article className="project-card">
-              <div className="project-top">
-                <span>01</span>
-                <span className="project-arrow">↗</span>
-              </div>
+            {projects.map((project, index) => (
+              <article
+                className="project-card"
+                key={project.title}
+              >
+                <div className="project-top">
+                  <span>0{index + 1}</span>
 
-              <div className="project-preview quickbite">
-                <span>QUICKBITE</span>
-              </div>
+                  <button
+                    className="project-arrow"
+                    onClick={() => setSelectedProject(project)}
+                    aria-label={`View ${project.title} details`}
+                  >
+                    ↗
+                  </button>
+                </div>
 
-              <h3>QuickBite</h3>
+                <div
+                  className={`project-preview ${
+                    index === 0
+                      ? "quickbite"
+                      : index === 1
+                      ? "rivanova"
+                      : "portfolio-preview"
+                  }`}
+                >
+                  {project.image ? (
+                    <img
+                      src={project.image}
+                      alt={`${project.title} project preview`}
+                    />
+                  ) : (
+                    <span>
+                      {index === 1 ? "RIVANOVA" : "KENT"}
+                    </span>
+                  )}
+                </div>
 
-              <p>
-                A food ordering and inventory management system
-                designed to manage products, orders, purchases,
-                and stock.
-              </p>
+                <h3>{project.title}</h3>
 
-              <div className="project-tags">
-                <span>PHP</span>
-                <span>MySQL</span>
-                <span>JavaScript</span>
-              </div>
+                <p>{project.description}</p>
 
-              <div className="project-links">
-                <a href="https://github.com/rkent-26/QuickBite" target="_blank">GitHub ↗</a>
-                <a href="https://quickbite-system.site.je/AUTHENTICATION/staff-login.php" target="_blank">Demo ↗</a>
-              </div>
-            </article>
+                <div className="project-tags">
+                  {project.technologies.map((tech) => (
+                    <span key={tech}>{tech}</span>
+                  ))}
+                </div>
 
-            <article className="project-card">
-              <div className="project-top">
-                <span>02</span>
-                <span className="project-arrow">↗</span>
-              </div>
+                <div className="project-links">
+                  {project.github &&
+                    project.github !== "#" && (
+                      <a
+                        href={project.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        GitHub ↗
+                      </a>
+                    )}
 
-              <div className="project-preview rivanova">
-                <span>RIVANOVA</span>
-              </div>
+                  {project.demo && (
+                    <a
+                      href={project.demo}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Demo ↗
+                    </a>
+                  )}
 
-              <h3>Rivanova City Hall</h3>
-
-              <p>
-                A business permit issuance system using enterprise
-                integration concepts and backend services.
-              </p>
-
-              <div className="project-tags">
-                <span>Java</span>
-                <span>Spring Boot</span>
-                <span>Apache Camel</span>
-              </div>
-
-              <div className="project-links">
-                <a href="#" target="_blank">GitHub ↗</a>
-                <a href="#" target="_blank">Details ↗</a>
-              </div>
-            </article>
-
-            <article className="project-card">
-              <div className="project-top">
-                <span>03</span>
-                <span className="project-arrow">↗</span>
-              </div>
-
-              <div className="project-preview portfolio-preview">
-                <span>KENT</span>
-              </div>
-
-              <h3>Personal Portfolio</h3>
-
-              <p>
-                A personal developer portfolio built to showcase
-                my skills, projects, journey, and experience.
-              </p>
-
-              <div className="project-tags">
-                <span>React</span>
-                <span>TypeScript</span>
-                <span>Vite</span>
-              </div>
-
-              <div className="project-links">
-                <a href="#" target="_blank">GitHub ↗</a>
-              </div>
-            </article>
+                  <button
+                    className="details-link"
+                    onClick={() =>
+                      setSelectedProject(project)
+                    }
+                  >
+                    Details →
+                  </button>
+                </div>
+              </article>
+            ))}
           </div>
         </section>
 
-        {/* CURRENTLY LEARNING */}
+        {/* LEARNING */}
         <section className="section learning-section">
           <div className="section-heading">
             <p className="section-number">05 — LEARNING</p>
@@ -402,7 +492,9 @@ function App() {
             <div className="learning-item">
               <span>04</span>
               <h3>AI Development</h3>
-              <p>Using AI tools to improve development workflows.</p>
+              <p>
+                Using AI tools to improve development workflows.
+              </p>
             </div>
           </div>
         </section>
@@ -421,6 +513,7 @@ function App() {
             Have an idea, project, or just want to connect?
             Feel free to reach out.
           </p>
+
           <a
             href="https://mail.google.com/mail/?view=cm&fs=1&to=rk.bella10@gmail.com"
             target="_blank"
@@ -433,19 +526,135 @@ function App() {
         </section>
       </main>
 
+      {/* PROJECT MODAL */}
+      {selectedProject && (
+        <div
+          className="project-modal-overlay"
+          onClick={() => setSelectedProject(null)}
+        >
+          <div
+            className="project-modal"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              className="modal-close"
+              onClick={() => setSelectedProject(null)}
+              aria-label="Close project details"
+            >
+              ×
+            </button>
+
+            {selectedProject.image && (
+              <div className="modal-image">
+                <img
+                  src={selectedProject.image}
+                  alt={`${selectedProject.title} preview`}
+                />
+              </div>
+            )}
+
+            <p className="modal-number">
+              PROJECT /{" "}
+              {String(
+                projects.findIndex(
+                  (project) =>
+                    project.title === selectedProject.title
+                ) + 1
+              ).padStart(2, "0")}
+            </p>
+
+            <h2>{selectedProject.title}</h2>
+
+            <p className="modal-description">
+              {selectedProject.longDescription}
+            </p>
+
+            <h3>Key Features</h3>
+
+            <div className="feature-grid">
+              {selectedProject.details.map((detail, index) => (
+                <div className="feature-item" key={detail}>
+                  <span className="feature-check">✓</span>
+
+                  <div>
+                    <span className="feature-number">
+                      {String(index + 1).padStart(2, "0")}
+                    </span>
+
+                    <p>{detail}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <div className="modal-tech">
+              {selectedProject.technologies.map((tech) => (
+                <span key={tech}>{tech}</span>
+              ))}
+            </div>
+
+            <div className="modal-actions">
+              {selectedProject.github &&
+                selectedProject.github !== "#" && (
+                  <a
+                    href={selectedProject.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="primary-button"
+                  >
+                    View GitHub ↗
+                  </a>
+                )}
+
+              {selectedProject.demo && (
+                <a
+                  href={selectedProject.demo}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="outline-button"
+                >
+                  Live Demo ↗
+                </a>
+              )}
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* FOOTER */}
       <footer>
         <p>© 2026 KENT.</p>
 
         <div>
-          <a href="https://github.com/rkent-26" target="_blank">GitHub</a>
-          <a href="#" target="_blank">LinkedIn</a>
-          <a href="https://www.facebook.com/ralp.kenit" target="_blank">Facebook</a>
+          <a
+            href="https://github.com/rkent-26"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            GitHub
+          </a>
+
+          <a
+            href="#"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            LinkedIn
+          </a>
+
+          <a
+            href="https://www.facebook.com/ralp.kenit"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Facebook
+          </a>
         </div>
 
         <p>Built with React + TypeScript</p>
       </footer>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
