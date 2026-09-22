@@ -146,7 +146,7 @@ function App() {
 
           <div className="timeline">
             <div className="timeline-item">
-              <div className="timeline-year">2025</div>
+              <div className="timeline-year">2024</div>
 
               <div className="timeline-line">
                 <span></span>
@@ -309,8 +309,8 @@ function App() {
               </div>
 
               <div className="project-links">
-                <a href="#" target="_blank">GitHub ↗</a>
-                <a href="#" target="_blank">Demo ↗</a>
+                <a href="https://github.com/rkent-26/QuickBite" target="_blank">GitHub ↗</a>
+                <a href="https://quickbite-system.site.je/AUTHENTICATION/staff-login.php" target="_blank">Demo ↗</a>
               </div>
             </article>
 
@@ -421,9 +421,10 @@ function App() {
             Have an idea, project, or just want to connect?
             Feel free to reach out.
           </p>
-
           <a
-            href="mailto:your@email.com"
+            href="https://mail.google.com/mail/?view=cm&fs=1&to=rk.bella10@gmail.com"
+            target="_blank"
+            rel="noopener noreferrer"
             className="primary-button contact-button"
           >
             Get In Touch
