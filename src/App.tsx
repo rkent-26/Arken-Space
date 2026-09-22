@@ -77,7 +77,39 @@ function App() {
 
   return (
     <div className="portfolio">
-      {/* NAVBAR */}
+      {/* =========================================
+          ANIMATED BACKGROUND
+      ========================================= */}
+
+      <div className="background-system" aria-hidden="true">
+        <div className="ambient-glow glow-one"></div>
+        <div className="ambient-glow glow-two"></div>
+
+        <div className="grid-plane"></div>
+        <div className="grid-horizon"></div>
+
+        <div className="background-particles">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+
+        <div className="scan-effect"></div>
+      </div>
+
+      {/* =========================================
+          NAVBAR
+      ========================================= */}
+
       <nav className="navbar">
         <a href="#home" className="logo">
           KENT<span>.</span>
@@ -93,7 +125,10 @@ function App() {
       </nav>
 
       <main>
-        {/* HERO */}
+        {/* =========================================
+            HERO
+        ========================================= */}
+
         <section id="home" className="hero">
           <div className="hero-content">
             <p className="eyebrow">HELLO, I'M</p>
@@ -148,44 +183,119 @@ function App() {
             </div>
           </div>
 
-          <div className="hero-visual">
-            <div className="glow"></div>
+          {/* =========================================
+              SMALL KENT DEV PROFILE
+          ========================================= */}
 
-            <div className="code-card">
-              <div className="window-bar">
-                <span></span>
-                <span></span>
-                <span></span>
+          <div className="hero-visual">
+            <div className="profile-orbit profile-orbit-one"></div>
+            <div className="profile-orbit profile-orbit-two"></div>
+
+            <div className="profile-glow"></div>
+
+            <div className="dev-profile">
+              <div className="profile-header">
+                <div className="profile-title">
+                  <span className="profile-dot"></span>
+                  KENT // DEV PROFILE
+                </div>
+
+                <span className="profile-symbol">
+                  &lt;/&gt;
+                </span>
               </div>
 
-              <div className="code">
-                <p>
-                  <span className="purple">const</span>{" "}
-                  <span className="blue">kent</span> = {"{"}
-                </p>
+              <div className="profile-info">
+                <div className="profile-info-row">
+                  <span>STATUS</span>
+                  <strong>LEARNING</strong>
+                </div>
 
-                <p className="indent">
-                  role: <span className="green">"Developer"</span>,
-                </p>
+                <div className="profile-info-row">
+                  <span>ROLE</span>
+                  <strong>IT STUDENT</strong>
+                </div>
 
-                <p className="indent">
-                  passion: <span className="green">"Technology"</span>,
-                </p>
+                <div className="profile-info-row">
+                  <span>LOCATION</span>
+                  <strong>PHILIPPINES</strong>
+                </div>
+              </div>
 
-                <p className="indent">
-                  mindset: <span className="green">"Keep Learning"</span>
-                </p>
+              <div className="profile-divider"></div>
 
-                <p>{"}"}</p>
+              <div className="profile-section-title">
+                CURRENTLY EXPLORING
+              </div>
 
-                <p className="cursor">_</p>
+              <div className="exploring-list">
+                <span>
+                  <i>01</i>
+                  REACT
+                </span>
+
+                <span>
+                  <i>02</i>
+                  TYPESCRIPT
+                </span>
+
+                <span>
+                  <i>03</i>
+                  NODE.JS
+                </span>
+
+                <span>
+                  <i>04</i>
+                  DATABASES
+                </span>
+
+                <span>
+                  <i>05</i>
+                  AI-ASSISTED DEVELOPMENT
+                </span>
+              </div>
+
+              <div className="profile-divider"></div>
+
+              <div className="profile-focus">
+                <div>
+                  <span>FOCUS</span>
+
+                  <strong>
+                    BUILDING
+                    <br />
+                    REAL PROJECTS
+                  </strong>
+                </div>
+
+                <button
+                  className="focus-arrow"
+                  onClick={() =>
+                    document
+                      .getElementById("about")
+                      ?.scrollIntoView({
+                        behavior: "smooth",
+                      })
+                  }
+                  aria-label="Explore Kent's profile"
+                >
+                  <span>↗</span>
+                </button>
+              </div>
+
+              <div className="profile-footer">
+                <span>KENT.DEV</span>
+                <span>2026</span>
               </div>
             </div>
           </div>
         </section>
 
-        {/* ABOUT */}
-        <section id="about" className="section">
+        {/* =========================================
+            ABOUT
+        ========================================= */}
+
+        <section id="about" className="section about-section">
           <div className="section-heading">
             <p className="section-number">01 — ABOUT</p>
             <h2>About Me</h2>
@@ -212,13 +322,13 @@ function App() {
 
             <div className="about-stats">
               <div className="stat">
-                <strong>2+</strong>
-                <span>Years Learning</span>
+                <strong>3</strong>
+                <span>Featured Projects</span>
               </div>
 
               <div className="stat">
-                <strong>3</strong>
-                <span>Projects</span>
+                <strong>IT</strong>
+                <span>Student</span>
               </div>
 
               <div className="stat">
@@ -229,7 +339,10 @@ function App() {
           </div>
         </section>
 
-        {/* JOURNEY */}
+        {/* =========================================
+            JOURNEY
+        ========================================= */}
+
         <section className="section journey-section">
           <div className="section-heading">
             <p className="section-number">02 — JOURNEY</p>
@@ -290,7 +403,10 @@ function App() {
           </div>
         </section>
 
-        {/* SKILLS */}
+        {/* =========================================
+            SKILLS
+        ========================================= */}
+
         <section id="skills" className="section">
           <div className="section-heading">
             <p className="section-number">03 — SKILLS</p>
@@ -371,7 +487,10 @@ function App() {
           </div>
         </section>
 
-        {/* PROJECTS */}
+        {/* =========================================
+            PROJECTS
+        ========================================= */}
+
         <section id="projects" className="section projects-section">
           <div className="section-heading">
             <p className="section-number">04 — PROJECTS</p>
@@ -385,37 +504,68 @@ function App() {
                 key={project.title}
               >
                 <div className="project-top">
-                  <span>0{index + 1}</span>
+                  <span>
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
 
                   <button
                     className="project-arrow"
-                    onClick={() => setSelectedProject(project)}
+                    onClick={() =>
+                      setSelectedProject(project)
+                    }
                     aria-label={`View ${project.title} details`}
                   >
                     ↗
                   </button>
                 </div>
 
-                <div
-                  className={`project-preview ${
-                    index === 0
-                      ? "quickbite"
-                      : index === 1
-                      ? "rivanova"
-                      : "portfolio-preview"
-                  }`}
-                >
-                  {project.image ? (
-                    <img
-                      src={project.image}
-                      alt={`${project.title} project preview`}
-                    />
-                  ) : (
+                {/* =========================================
+                    PROJECT IMAGE / PREVIEW
+                ========================================= */}
+
+                {project.image ? (
+                  <div className="project-image">
+                    <div className="project-image-header">
+                      <div>
+                        <span className="project-image-label">QUICKBITE</span>
+                        <span className="project-image-separator">//</span>
+                        <span className="project-image-tech">PHP / MYSQL</span>
+                      </div>
+
+                      <button
+                        className="project-image-arrow"
+                        onClick={() => setSelectedProject(project)}
+                        aria-label={`View ${project.title} details`}
+                      >
+                        <span>↗</span>
+                      </button>
+                    </div>
+
+                    <div className="project-image-content">
+                      <img
+                        src={project.image}
+                        alt={`${project.title} project preview`}
+                      />
+                    </div>
+
+                    <div className="project-image-overlay"></div>
+
+                    <div className="project-image-corner">
+                      01
+                    </div>
+                  </div>
+                ) : (
+                  <div
+                    className={`project-preview ${index === 1
+                        ? "rivanova"
+                        : "portfolio-preview"
+                      }`}
+                  >
                     <span>
                       {index === 1 ? "RIVANOVA" : "KENT"}
                     </span>
-                  )}
-                </div>
+                  </div>
+                )}
 
                 <h3>{project.title}</h3>
 
@@ -463,7 +613,10 @@ function App() {
           </div>
         </section>
 
-        {/* LEARNING */}
+        {/* =========================================
+            LEARNING
+        ========================================= */}
+
         <section className="section learning-section">
           <div className="section-heading">
             <p className="section-number">05 — LEARNING</p>
@@ -499,7 +652,10 @@ function App() {
           </div>
         </section>
 
-        {/* CONTACT */}
+        {/* =========================================
+            CONTACT
+        ========================================= */}
+
         <section id="contact" className="contact-section">
           <p className="section-number">06 — CONTACT</p>
 
@@ -526,7 +682,10 @@ function App() {
         </section>
       </main>
 
-      {/* PROJECT MODAL */}
+      {/* =========================================
+          PROJECT MODAL
+      ========================================= */}
+
       {selectedProject && (
         <div
           className="project-modal-overlay"
@@ -573,7 +732,10 @@ function App() {
 
             <div className="feature-grid">
               {selectedProject.details.map((detail, index) => (
-                <div className="feature-item" key={detail}>
+                <div
+                  className="feature-item"
+                  key={detail}
+                >
                   <span className="feature-check">✓</span>
 
                   <div>
@@ -621,7 +783,10 @@ function App() {
         </div>
       )}
 
-      {/* FOOTER */}
+      {/* =========================================
+          FOOTER
+      ========================================= */}
+
       <footer>
         <p>© 2026 KENT.</p>
 
